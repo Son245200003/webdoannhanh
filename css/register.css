@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(https://scontent.fhan5-10.fna.fbcdn.net/v/t1.15752-9/359798841_288225117124470_406453961666045045_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=QP6DjRirvhAAX81ss3-&_nc_ht=scontent.fhan5-10.fna&oh=03_AdQq-kBfALWOIyrTrFPuee7Plm46VA4d-X2YBGv_ejAdKA&oe=64F9BD22);
+    background-repeat: no-repeat;
+    background-image: url(https://simdepvietnam.vn/wp-content/uploads/2019/05/999-hinh-nen-may-tinh-pc-laptop-full-hd-2k-4k-8k-cuc-dep-2019-10.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.login{
+    width: 550px;
+    height:550px;
+    padding:30px;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    border: 1px solid black;
+    border-radius: 30px;
+    backdrop-filter:blur(10px);
+
+}
+.box1{
+    text-align: center;
+    font-size: 30px;
+    /* margin-top: 20px; */
+}
+
+.box2 .mail{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    padding: 0px 25px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    margin-top: 40px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+
+}
+.box3 .mail{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    padding: 0px 25px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+.mail:focus{
+    background-color: #ccc;
+}
+.box4{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.box5 button{
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: black;
+    color: azure;
+}
+button:active{
+    font-size: 30px;
+    background-color: #555;
+}
+.box6{
+     display: flex;
+    justify-content: center; 
+    margin-top: 30px;
+}
+.box6 a{
+    text-decoration: none;
+    margin-left: 5px;
+    color: black;
+    font-weight: 600;
+}
+a:hover{
+    text-decoration: underline;
+}
+.box2 i{
+    position: absolute;
+    right: 50px;
+    top: 30%;
+    /* transform: translateY(-50%); */
+    font-size: 20px ;
+    color: #555;
+}
+.box3 i{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #555;
+}
