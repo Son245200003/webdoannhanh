@@ -1,6 +1,12 @@
 <?php $link=new mysqli('localhost','root','','web_btl') or die('Kết nối thất bại'); 
      mysqli_query($link,'SET NAME UTF8')  ;
      session_start();
+     if(isset($_SESSION['mySession'])){
+        header('Location:trangchu.php');
+     }
+     if(isset($_SESSION['id_user'] )){
+        $id_user=$_SESSION['id_user'];
+     }
      ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,34 +17,50 @@
     <link rel="stylesheet" href="./asset/themify-icons/themify-icons.css">
     <title>dangnhap</title>
 </head>
+<style>
+    video{
+        position: relative;
+        overflow: hidden;
+    }
+    form{
+        z-index: 1;
+        position: absolute;
+        top: 19%;
+        left: 35%;
+    }
+</style>
 <body>
-    <form action="" method="post">
-        <div class="login">
-            <div class="box1">
-                <h3 >Đăng nhập</h3>
+        <video autoplay muted loop src="./img/glazed_-_11696 (Original)">
+    
+        </video>
 
-            </div>
-            <div class="box2">
-                <input type="text" class="mail" placeholder="Email or SDT" autocomplete="off" required name="user" >
-                <i class="ti-email"></i>
-            </div>
-            <div class="box3">
-                <input type="password" class="mail" placeholder="Password" name="password" >
-                <i class="ti-key"></i>
-            </div>
-            <!-- <div class="box4">
-                <input type="checkbox" class="checkbox" name="role">
-                <label for="check">admin</label>
-            </div> -->
-            <div class="box5">
-                <button name="insert">Login</button>
-                
-            </div>
-            <div class="box6">
-                <h4 style="color: #fff;font-weight: 300;">Không có tài khoản?</h4>
-                <a href="dangki.php">Đăng kí</a>
-            </div>
-    </form>
+        <form action="" method="post">
+            <div class="login">
+                <div class="box1">
+                    <h3 >Đăng nhập</h3>
+    
+                </div>
+                <div class="box2">
+                    <input type="text" class="mail" placeholder="Email or SDT" autocomplete="off" required name="user" >
+                    <i class="ti-email"></i>
+                </div>
+                <div class="box3">
+                    <input type="password" class="mail" placeholder="Password" name="password" >
+                    <i class="ti-key"></i>
+                </div>
+                <!-- <div class="box4">
+                    <input type="checkbox" class="checkbox" name="role">
+                    <label for="check">admin</label>
+                </div> -->
+                <div class="box5">
+                    <button name="insert">Login</button>
+                    
+                </div>
+                <div class="box6">
+                    <h4 style="color: #fff;font-weight: 300;">Không có tài khoản?</h4>
+                    <a href="dangki.php">Đăng kí</a>
+                </div>
+        </form>
         <?php
         // $db= mysqli_connect("localhost","root","","web_btl");
         if(isset($_POST['insert'])){
@@ -54,9 +76,17 @@
             
            $_SESSION['login']=$row['role'];
             if($_SESSION['login']&&$_SESSION['login']!='0'){
+                $id_user=$row['id'];
+                $_SESSION['mySession']=$id_user;
+                
+                // $_SESSION['id_user']=$id_user;
                 header("Location:./admin/trangchu_admin.php");
             }
-            else header("Location:trangchu.php");
+            else {
+                $id_user=$row['id'];
+                $_SESSION['tenkhach']=$u;
+                $_SESSION['mySession']=$id_user;
+                header("Location:trangchu.php?");}
             
            }
            else{

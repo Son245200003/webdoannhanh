@@ -11,9 +11,9 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(https://scontent.fhan5-10.fna.fbcdn.net/v/t1.15752-9/359798841_288225117124470_406453961666045045_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=QP6DjRirvhAAX81ss3-&_nc_ht=scontent.fhan5-10.fna&oh=03_AdQq-kBfALWOIyrTrFPuee7Plm46VA4d-X2YBGv_ejAdKA&oe=64F9BD22);
     background-repeat: no-repeat;
-    background-image: url(https://simdepvietnam.vn/wp-content/uploads/2019/05/999-hinh-nen-may-tinh-pc-laptop-full-hd-2k-4k-8k-cuc-dep-2019-10.jpg);
+    /* background-image: url(https://simdepvietnam.vn/wp-content/uploads/2019/05/999-hinh-nen-may-tinh-pc-laptop-full-hd-2k-4k-8k-cuc-dep-2019-10.jpg); */
+    background-image: url(https://camnang24h.net/wp-content/uploads/2021/06/hinh-nen-thit-xien-nuong-cho-may-tinh-12.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -110,4 +110,14 @@ a:hover{
     transform: translateY(-50%);
     font-size: 20px;
     color: #555;
+}
+video{
+    position: relative;
+    overflow: hidden;
+}
+form{
+    z-index: 1;
+    position: absolute;
+    top: 19%;
+    left: 35%;
 }

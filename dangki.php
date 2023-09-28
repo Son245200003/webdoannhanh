@@ -6,19 +6,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../web_btl/css/register.css">
+    <link rel="stylesheet" href="./css/register.css">
     <link rel="stylesheet" href="./asset/themify-icons/themify-icons.css">
-    <title>dangnhap</title>
+    <title>Đăng kí</title>
 </head>
 <style>
     p{
         color: brown;
         font-size: 20px;
     }
+    .box4 a{
+        text-decoration: none;color: white;
+        padding-top:10px;
+    }
+    .box4 a:hover{
+        color: #000;
+        cursor: pointer;
+    }
 </style>
-<body>
+<body >
+<video autoplay muted loop src="./img/glazed_-_11696 (Original)"></video>
+<form action="" method="post">
     <div class="login">
-        <form action="" method="post">
             <div class="box1">
                 <h3 >Register</h3>
             </div>
@@ -39,9 +48,8 @@
                 <!-- <input type="submit" name="insert" value="Them moi"> -->
             </div>
             <div class="box4">
-               <a style="text-decoration: none;color: white;" href="dangnhap.php"><label for="check">Quay lại trang đăng nhập</label></a> 
+               <a href="dangnhap.php">Quay lại trang đăng nhập</a> 
             </div>
-        </form>
     <?php
     if(isset($_POST['insert']) &&  $_POST['user'] !='' &&  $p=$_POST['password'] !='' && $_POST['name'] !=''){
         $User=$_POST['user'];
@@ -62,7 +70,11 @@
     
     } 
     ?>
+</div>
+    
+    
+
+ </form>
   
-    </div>
 </body>
 </html>

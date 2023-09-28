@@ -1,13 +1,16 @@
 <?php $link=new mysqli('localhost','root','','web_btl') or die('Kết nối thất bại'); 
      mysqli_query($link,'SET NAME UTF8')  ;
+     session_start();
+     if(!isset($_SESSION['mySession'])){
+        header('Location:../dangnhap.php');
+     }
      ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../web_btl/css/style.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylee.css">
     
     <link rel="stylesheet" href="../css/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
     <link rel="stylesheet" href="../css/themify-icons-font/themify-icons/themify-icons.css">
@@ -95,11 +98,15 @@
 .content{
     margin-left: 20px;
     flex: 4.5; 
-    
+    background-image: none;
 }
 /* mở đóng đăng xuất  */
 .out.open{
     display: block;
+}
+.ti-angle-down:hover{
+    cursor: pointer;
+    background-color: #696969;
 }
 </style>
 <body>
@@ -109,22 +116,11 @@
                 <img src="https://cdn4.vectorstock.com/i/1000x1000/50/28/logo-for-bbq-vector-22845028.jpg" height="40px"  alt="">
             </div>
             <div class="header_left">
-                <ul class="menu">
-                    <li><a  href="trangchu.php">Trang chủ</a></li>
-                    <li><a href="">Sản phẩm</a><i class="fa-solid fa-chevron-down"></i>
-                        <ul class="an">
-                            <li><a href="doannhanh.php">Đồ ăn nhanh</a></li>
-                            <li><a href="#">BBQ</a></li>
-                            <li><a href="#">Đồ uống</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="">Liên hệ</a></li>
-                </ul>
+                
             </div>
             <div class="header_right">
                 <ul class="menu">
-                    <li><a href="#"><i class="ti-back-right"></i>Trang chủ admin</a></li>
+                    <li><a href="trangchu_admin.php"><i class="ti-back-right"></i>Trang chủ admin</a></li>
                     
                 </ul>
             </div>
@@ -136,10 +132,11 @@
                     <p>Admin</p>
                     
                     <i class="ti-angle-down">
+                        
                     <div class="out">
                             <i class="ti-close"><br></i>
                             <i class="fa-solid fa-right-to-bracket"></i>    
-                            <a href="../dangnhap.php">Đăng xuất</a>
+                            <a href="../dangxuat.php">Đăng xuất</a>
                     </div>          
                     
                     </i>
@@ -149,21 +146,32 @@
                 <ul class="cha">
                     <li>Quản lý tài khoản
                         <ul class="con">
-                            <li><a href="../admin/slide/accountadd.php">Thêm tài khoản</a></li>
-                            <li><a href="../admin/slide/accountlist.php">Danh sách tài khoản</a></li>
+                            <li><a href="../admin/accout_add.php">Thêm tài khoản</a></li>
+                            <li><a href="../admin/accout_list.php">Danh sách tài khoản</a></li>
                         </ul>
                         
                     </li>
                     <li>Quản lý danh mục sản phẩm
                     <ul class="con">
-                            <li><a href="../admin/slide/categoryadd.php">Thêm danh mục sản phẩm</a></li>
-                            <li><a href="../admin/slide/categorylist.php">Danh sách danh mục sản phẩm</a></li>
+                            <li><a href="../admin/category_add.php">Thêm danh mục sản phẩm</a></li>
+                            <li><a href="../admin/category_list.php">Danh sách danh mục sản phẩm</a></li>
                         </ul>
                     </li>
                     <li>Quản lý sản phẩm
                     <ul class="con">
-                            <li><a href="../admin/slide/productadd.php">Thêm sản phẩm</a></li>
-                            <li><a href="../admin/slide/productlist.php">Danh sách sản phẩm</a></li>
+                            <li><a href="../admin/product_add.php">Thêm sản phẩm</a></li>
+                            <li><a href="../admin/product_list.php">Danh sách sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li>Quản lý đơn hàng
+                    <ul class="con">
+                            <li><a href="../admin/order.php">Xem đơn hàng</a></li>
+                        </ul>
+                    </li>
+                    <li>Quản lý tin tức
+                    <ul class="con">
+                            <li><a href="../admin/tintuc_them.php">Thêm tin tức</a></li>
+                            <li><a href="../admin/tintuc_list.php">Xem tin tức</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -190,7 +198,7 @@
          const show=document.querySelector(".ti-angle-down")
          const close=document.querySelector(".ti-close")
          const out=document.querySelector(".out")
-         const main=document.querySelector(".sidebar");
+         const main=document.querySelector(".content");
         //  close.onclick=function(e) 
         //  {
         //     e.stopPropagation();
@@ -207,5 +215,7 @@
         
         show.addEventListener('click',showdangxuat)
         close.addEventListener('click',hidedangxuat)
+        main.addEventListener('click',hidedangxuat)
+
     </script>
 </html>

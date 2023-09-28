@@ -1,46 +1,91 @@
     <?php $link=new mysqli('localhost','root','','web_btl') or die('Kết nối thất bại'); 
      mysqli_query($link,'SET NAME UTF8')  ;
+     session_start();
+     if(!isset($_SESSION['mySession'])){
+        header('Location:dangnhap.php');
+     }
+     if(isset($_SESSION['mySession'])) {
+        $id_user=$_SESSION['mySession'];
+        $user=$_SESSION['tenkhach'];
+     }
      ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../web_btl/css/style.css">
-    
+    <link rel="stylesheet" href="../web_btl/css/stylee.css">
     <link rel="stylesheet" href="./css/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
     
     <title>BBQ</title>
 </head>
+<style>
+   
+</style>
 <body>
     <div id="main">
         <!-- Header -->
         <div id="header">
-            <div class="logo" style=margin-top:5px;width:100px;>
+            <div class="logo" style=margin-top:5px;>
                 <img src="https://cdn4.vectorstock.com/i/1000x1000/50/28/logo-for-bbq-vector-22845028.jpg" height="40px"  alt="">
+                <!-- <a href="trangchu.php" style="margin-top: 5px;text-decoration: none;color: #FF6633;"><h3>Sơn BBQ</h3></a> -->
+                <a style="height: 50px;" href="trangchu.php">
+                    <div class="text">
+                        <h3>Sơn BBQ</h3>
+                    </div>
+                    <svg>
+                        <filter id="fire">
+                            <feTurbulence id="turbulence" baseFrequency="0.1 0.1 " numOctaves="2" seed="3">
+                            </feTurbulence>
+                            <feDisplacementMap in="SourceGraphic" scale="3"></feDisplacementMap>
+                        </filter>
+                    </svg>
+                </a>
             </div>
             <div class="header_left">
                 <ul class="menu">
                     <li><a  href="trangchu.php">Trang chủ</a></li>
                     <li><a href="">Sản phẩm</a><i class="fa-solid fa-chevron-down"></i>
                         <ul class="an">
-                            <li><a href="doannhanh.php">Đồ ăn nhanh</a></li>
-                            <li><a href="#">BBQ</a></li>
-                            <li><a href="#">Đồ uống</a></li>
+                            <?php
+                                $query="SELECT * FROM danhmuc";
+                                $result =mysqli_query($link,$query);
+                                if(mysqli_num_rows($result) > 0){
+                                    $i=0;
+                                    while($r=mysqli_fetch_assoc($result)){
+                                        $i++;
+                                        $u=$r['tendanhmuc'];
+                                        $p=$r['linkdanhmuc'];
+                                        echo"<li><a href='$p'>$u</a></li>";
+                                        
+                                    }
+                                }
+                            ?>
+                            
                         </ul>
                     </li>
-                    <!-- <li><a href="">Các món bò</a><i class="fa-solid fa-chevron-down"></i></li>
-                    <li><a href="">Salad</a></li>
-                    <li><a href="">Đồ uống</a></li>
-                    <li><a href="">Có gì mới</a></li> -->
-                    <li><a href="">Liên hệ</a></li>
+                                
+                    <li><a href="gioithieu.php">Giới thiệu</a></li>
+                    <li><a href="tintuc.php">Tin tức</a></li>
                 </ul>
             </div>
             <div class="header_right">
                 <ul class="menu">
-                    <li><a href="dangnhap.php">Đăng nhập</a></li>
-                    <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li> <a style="color: white;" href="#">Xin chào, <?php echo $user?></a></li>
+                    <li><a href="dangxuat.php">Đăng Xuất</a></li>
+                    <li><a href="timkiem.php"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                    <li><a class="relative"  href="giohang.php"><i class="fa-solid fa-cart-shopping"></i>
+                        <?php $query="SELECT * FROM giohang WHERE user ='$id_user' ";
+                            $result =mysqli_query($link,$query);
+                            if(mysqli_num_rows($result) > 0){
+                                $i=0;
+                                while($r=mysqli_fetch_assoc($result)){
+                                    $i++;
+                                    echo"<p>$i</p>";
+                                    
+                                }}
+                        ?>
+                </a></li>
                 </ul>
             </div>
         </div>
@@ -50,7 +95,7 @@
             <div class="sidebar">
                 <div class="sidebar_menu">
                         <a href="#content_fastfood">Đồ ăn nhanh</a> 
-                        <a href="#newfood">Món mới</a> 
+                        <a href="#newfood">BBQ</a> 
                         <a href="#drink">Đồ uống</a> 
                         
                 </div>
@@ -71,180 +116,104 @@
                 <div id="content_fastfood" class="content_fastfood">
                     <p class="content_title">Đồ ăn nhanh</p>
                     <div class="content_menu">
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="https://cdn.tgdd.vn/2021/11/CookRecipe/Avatar/banh-mi-tho-nhi-ky-thit-heo-thumbnail.jpg" alt="bánh mì">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="https://nhahanghuongsen.com.vn/wp-content/uploads/2014/08/dui-ga-nuong.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Đùi gà nướng</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="https://th.bing.com/th/id/R.977891a3bb83a1cfb07ae5f7227a923e?rik=VlrW%2bYK2LokwTQ&riu=http%3a%2f%2fwww.monngon.tv%2fuploads%2fimages%2fimages%2fbanh-hamburger-bo-1.jpg&ehk=u838I86f3xXWElpmyS0U86mupsqhnOXlO79vnZEhfk8%3d&risl=&pid=ImgRaw&r=0" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Hambuger thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="https://th.bing.com/th/id/OIP.F1AJHmgfs8f3xI0-HKrA0QHaFj?pid=ImgDet&rs=1" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Hambuger gà</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="https://th.bing.com/th/id/R.f3995e468c9787ee819e75c81a448306?rik=KayE18eGi911hg&riu=http%3a%2f%2fwww.favfoods.us%2fwp-content%2fuploads%2f2018%2f10%2fTHRIVE_09_104.jpg&ehk=%2fzyQq37aMf3aFgyRHOGUz8WPXmqzLIpm7ZRUzEmGJto%3d&risl=&pid=ImgRaw&r=0" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Salad</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="https://quangon.vn/resources/2020/05/19/salad-trai-cay-sot-mayonnaise-13.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Salad trái cây</p>
-                            </div>
-                            </a>
-                        </div>
-
+                        <?php
+                            $query="SELECT * FROM sanpham WHERE category_id='ĐỒ ĂN NHANH' LIMIT 0,6";
+                            $result =mysqli_query($link,$query);
+                            if(mysqli_num_rows($result) > 0){
+                                $i=0;
+                                while($r=mysqli_fetch_assoc($result)){
+                                    $i++;
+                                    $id=$r['id'];
+                                    $dm=$r['category_id'];
+                                    $sp=$r['tittle'];
+                                    $gia=$r['price'];
+                                    $l=$r['thumbnail'];
+                                    ?>
+                                <div class="menu_list">
+                                 
+                                    <a href="#">
+                                        <?php echo"<img src='$l'alt='bánh mì'>";?>
+                                        <div class="sanpham">
+                                        <?php echo"<h3>$gia $</h3>";?>
+                                        <?php echo"<p>$sp</p>";?>
+                                        <?php echo" <a href='./themvaogiohang.php?id=$sp'>" ?> <button name="add"><i class="fa-solid fa-cart-shopping"></i>Thêm vào giỏ hàng</button>
+                                         </div>
+                                        </a> 
+                                    </a>
+                                </div>
+                                    <?php
+                                }
+                                
+                            }
+                        ?>
+                       
                     </div>
-                </div>
+                </div> 
                 <div id="newfood" class="newfood">
                     <p class="content_title">BBQ</p>
                     <div class="content_menu">
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-
+                    <?php
+                            $query="SELECT * FROM sanpham WHERE category_id='BBQ'Limit 0,6";
+                            $result =mysqli_query($link,$query);
+                            if(mysqli_num_rows($result) > 0){
+                                $i=0;
+                                while($r=mysqli_fetch_assoc($result)){
+                                    $i++;
+                                    $dm=$r['category_id'];
+                                    $sp=$r['tittle'];
+                                    $gia=$r['price'];
+                                    $l=$r['thumbnail'];
+                                    ?>
+                                <div class="menu_list">
+                                    <a href="#">
+                                        <?php echo"<img src='$l'alt='bánh mì'>";?>
+                                        <div class="sanpham">
+                                        <?php echo"<h3>$gia $</h3>";?>
+                                        <?php echo"<p>$sp</p>";?>
+                                        <?php echo" <a href='./themvaogiohang.php?id=$sp'>" ?> <button name="add"><i class="fa-solid fa-cart-shopping"></i>Thêm vào giỏ hàng</button>
+                                         </div>
+                                        </a> 
+                                    </a>
+                                </div>
+                                    <?php
+                                }
+                                
+                            }
+                        ?>
+                       
                     </div>
                 </div>
                 <div id="drink" class="drink">
                     <p class="content_title">Đồ uống</p>
                     <div class="content_menu">
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="menu_list">
-                            <a href="">
-                            <img src="/img/banhmi.jpg" alt="">
-                            <div class="sanpham">
-                                <h3>99,000Đ</h3>
-                                <p>Bánh mì kẹp thịt bò</p>
-                            </div>
-                            </a>
-                        </div>
+                    <?php
+                            $query="SELECT * FROM sanpham WHERE category_id='ĐỒ UỐNG'Limit 0,6";
+                            $result =mysqli_query($link,$query);
+                            if(mysqli_num_rows($result) > 0){
+                                $i=0;
+                                while($r=mysqli_fetch_assoc($result)){
+                                    $i++;
+                                    $dm=$r['category_id'];
+                                    $sp=$r['tittle'];
+                                    $gia=$r['price'];
+                                    $l=$r['thumbnail'];
+                                    ?>
+                                <div class="menu_list">
+                                    <a href="#">
+                                        <?php echo"<img src='$l'alt='bánh mì'>";?>
+                                        <div class="sanpham">
+                                        <?php echo"<h3>$gia $</h3>";?>
+                                        <?php echo"<p>$sp</p>";?>
+                                        <?php echo" <a href='./themvaogiohang.php?id=$sp'>" ?> <button name="add"><i class="fa-solid fa-cart-shopping"></i>Thêm vào giỏ hàng</button>
+                                         </div>
+                                        </a> 
+                                    </a>
+                                </div>
+                                    <?php
+                                }
+                                
+                            }
+                        ?>
 
                     </div>
                 </div>
