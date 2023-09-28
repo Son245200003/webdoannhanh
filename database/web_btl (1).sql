@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2023 at 06:32 AM
+-- Generation Time: Sep 28, 2023 at 08:21 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -24,6 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `accout_infor`
+--
+
+CREATE TABLE `accout_infor` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `sdt` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dangnhap`
 --
 
@@ -40,16 +53,13 @@ CREATE TABLE `dangnhap` (
 --
 
 INSERT INTO `dangnhap` (`id`, `user`, `password`, `name`, `role`) VALUES
-(2, '123', '321', '', 0),
-(3, 'sondeptrai', '12333', '', 0),
 (4, 's', 's', '', 0),
 (5, 'admin', '1', '', 1),
-(6, 'danhson245203@gmail.com', '1', '', 0),
-(7, 'danhson245203@gmail.com', '1', '', 0),
 (9, 'son123', '231', '', 0),
 (10, '1', '2', 'son', 0),
 (51, 'son', '123', 'son', 0),
-(52, 'son121', '123', 'son', 0);
+(52, 'son121', '123', 'son', 0),
+(53, 'tranduong', '1', 'duong', 0);
 
 -- --------------------------------------------------------
 
@@ -93,257 +103,9 @@ CREATE TABLE `giohang` (
 --
 
 INSERT INTO `giohang` (`id`, `user`, `category`, `tittle`, `price`, `soluong`, `thumbnail`) VALUES
-(25, 2, 'ĐỒ ĂN NHANH', '2', 20000, 0, ' https://th.bing.com/th/id/OIP.-BJ5K_Gy5YcQd9YkCm5pYwAAAA?pid=ImgDet&rs=1'),
-(40, 2, '', '', 0, 0, ' '),
-(41, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(42, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(43, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(44, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(45, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(46, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(47, 2, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(48, 2, 'ĐỒ ĂN NHANH', '2323', 20000, 0, ' https://th.bing.com/th/id/OIP.GiCwSHDnkqNMQ-pTGbtMTgHaFO?pid=ImgDet&rs=1'),
-(49, 2, 'ĐỒ ĂN NHANH', '2323', 20000, 0, ' https://th.bing.com/th/id/OIP.GiCwSHDnkqNMQ-pTGbtMTgHaFO?pid=ImgDet&rs=1'),
-(50, 2, 'ĐỒ ĂN NHANH', '2323', 20000, 0, ' https://th.bing.com/th/id/OIP.GiCwSHDnkqNMQ-pTGbtMTgHaFO?pid=ImgDet&rs=1'),
-(51, 2, 'ĐỒ ĂN NHANH', '2323', 20000, 0, ' https://th.bing.com/th/id/OIP.GiCwSHDnkqNMQ-pTGbtMTgHaFO?pid=ImgDet&rs=1'),
-(57, 52, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(58, 52, 'ĐỒ ĂN NHANH', '2323', 20000, 0, ' https://th.bing.com/th/id/OIP.GiCwSHDnkqNMQ-pTGbtMTgHaFO?pid=ImgDet&rs=1'),
-(59, 52, 'ĐỒ ĂN NHANH', '1rr ', 1111, 0, ' https://www.huongnghiepaau.com/wp-content/uploads/2019/01/hamburger-nhan-thit-heo.jpg'),
-(233, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(234, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(235, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(236, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(237, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(238, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(239, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(240, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(241, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(242, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(243, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(244, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(245, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(246, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(247, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(248, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(249, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(250, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(251, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(252, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(253, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(254, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(255, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(256, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(257, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(258, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(259, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(260, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(261, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(262, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(263, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(264, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(265, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(266, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(267, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(268, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(269, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(270, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(271, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(272, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(273, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(274, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(275, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(276, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(277, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(278, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(279, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(280, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(281, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(282, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(283, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(284, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(285, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(286, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(287, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(288, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(289, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(290, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(291, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(292, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(293, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(294, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(295, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(296, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(297, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(298, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(299, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(300, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(301, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(302, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(303, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(304, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(305, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(306, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(307, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(308, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(309, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(310, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(311, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(312, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(313, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(314, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(315, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(316, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(317, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(318, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(319, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(320, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(321, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(322, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(323, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(324, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(325, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(326, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(327, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(328, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(329, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(330, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(331, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(332, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(333, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(334, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(335, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(336, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(337, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(338, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(339, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(340, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(341, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(342, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(343, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(344, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(345, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(346, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(347, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(348, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(349, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(350, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(351, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(352, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(353, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(354, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(355, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(356, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(357, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(358, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(359, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(360, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(361, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(362, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(363, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(364, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(365, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(366, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(367, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(368, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(369, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(370, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(371, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(372, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(373, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(374, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(375, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(376, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(377, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(378, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(379, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(380, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(381, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(382, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(383, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(384, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(385, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(386, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(387, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(388, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(389, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(390, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(391, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(392, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(393, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(394, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(395, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(396, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(397, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(398, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(399, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(400, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(401, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(402, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(403, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(404, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(405, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(406, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(407, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(408, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(409, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(410, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(411, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(412, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(413, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(414, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(415, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(416, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(417, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(418, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(419, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(420, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(421, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(422, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(423, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(424, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(425, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(426, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(427, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(428, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(429, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(430, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(431, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(432, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(433, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(434, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(435, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(436, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(437, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(438, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(439, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(440, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(441, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(442, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(443, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(444, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(445, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(446, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(447, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(448, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(449, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(450, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(451, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(452, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(453, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(454, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(455, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(456, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(457, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(458, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(459, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(460, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(461, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(462, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(463, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(464, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(465, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(466, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png'),
-(467, 4, 'ĐỒ ĂN NHANH', 'Khoai tây lắc vị BBQ(vừa)', 30, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/k/h/khoai-16.png');
+(719, 4, 'ĐỒ ĂN NHANH', 'Kem socola', 15, 2, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/1/9/192dcb48e7393a-kemsocola16.png'),
+(720, 4, 'ĐỒ ĂN NHANH', 'Bánh xoài đào', 10, 1, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/p/m/pmp-plated.png'),
+(721, 4, 'ĐỒ ĂN NHANH', 'Hot dog nước ngọt lớn', 35, 2, ' https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/h/o/hotdog_web-02.png');
 
 -- --------------------------------------------------------
 
@@ -359,16 +121,27 @@ CREATE TABLE `order_admin` (
   `ghichu` varchar(500) NOT NULL,
   `user` int(11) NOT NULL,
   `donhang` varchar(255) NOT NULL,
-  `tongtien` int(11) NOT NULL
+  `tongtien` int(11) NOT NULL,
+  `Date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `order_admin`
 --
 
-INSERT INTO `order_admin` (`id`, `name`, `sdt`, `diachi`, `ghichu`, `user`, `donhang`, `tongtien`) VALUES
-(47, '123', 1231, '132', '123321', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa)</br> 2. khoai viên rong biển</br> 3. Súp bí bỏ', 70),
-(48, '312', 123, '123', '123', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa)</br> 2. Khoai tây lắc vị BBQ(vừa)</br> 3. khoai viên rong biển</br> 4. khoai viên rong biển</br> 5. khoai viên rong biển</br> 6. Súp bí bỏ</br> 7. Súp bí bỏ</br> 8. Súp bí bỏ</br> 9. Súp bí bỏ', 195);
+INSERT INTO `order_admin` (`id`, `name`, `sdt`, `diachi`, `ghichu`, `user`, `donhang`, `tongtien`, `Date`) VALUES
+(47, '123', 1231, '132', '123321', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa)</br> 2. khoai viên rong biển</br> 3. Súp bí bỏ', 70, ''),
+(48, '312', 123, '123', '123', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa)</br> 2. Khoai tây lắc vị BBQ(vừa)</br> 3. khoai viên rong biển</br> 4. khoai viên rong biển</br> 5. khoai viên rong biển</br> 6. Súp bí bỏ</br> 7. Súp bí bỏ</br> 8. Súp bí bỏ</br> 9. Súp bí bỏ', 195, ''),
+(49, '123', 123, '132', '123', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa)</br> 2. khoai viên rong biển</br> 3. Súp bí bỏ', 530, ''),
+(50, '123', 123, '321', '123', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa) x 2</br> 2. khoai viên rong biển x 2', 110, ''),
+(51, 'Nguyễn Danh Sơn', 946704597, 'Đình bảng', 'ship lẹ', 51, '</br> 1. khoai viên rong biển x 1</br> 2. Súp bí bỏ x 1', 40, ''),
+(52, 'Nguyễn Danh Sơn', 946704597, 'đình bảng', 'ship lẹ đi cu', 51, '</br> 1. khoai viên rong biển x 3</br> 2. Khoai tây lắc vị BBQ(vừa) x 1</br> 3. Khoai tây lắc vị BBQ(vừa) x 1</br> 4. Súp bí bỏ x 3', 180, ''),
+(53, 'Dương', 946704597, 'Đình bảng', 'ship lẹ', 53, '</br> 1. khoai viên rong biển x 4</br> 2. Hot dog nước ngọt lớn x 1', 135, ''),
+(54, '123', 123, '123', '123', 51, '</br> 1. khoai viên rong biển x 4</br> 2. Khoai tây lắc vị BBQ(vừa) x 3</br> 3. Súp bí bỏ x 3', 235, ''),
+(55, '123', 1, '123', '123', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa) x 5</br> 2. khoai viên rong biển x 3</br> 3. Miếng gà sốt cay x 2', 295, '2023-09-25 11:52:21 '),
+(56, 'Danh Sơn ', 946704597, 'từ sơn ', 'Bro', 5, '</br> 1. Khoai tây lắc vị BBQ(vừa) x 1</br> 2. khoai viên rong biển x 1', 55, '2023-09-26 16:28:09'),
+(57, 'đâsadsads', 946704597, 'c', 'cs', 51, '</br> 1. khoai viên rong biển x 1</br> 2. Súp bí bỏ x 1</br> 3. Khoai tây lắc vị BBQ(vừa) x 1</br> 4. Miếng gà sốt cay x 1', 105, '2023-09-26 16:39:28'),
+(58, 's', 12312, 'ssss', 'ssss', 51, '</br> 1. Khoai tây lắc vị BBQ(vừa) x 1</br> 2. khoai viên rong biển x 1</br> 3. Súp bí bỏ x 1', 70, '2023-09-27 05:21:20');
 
 -- --------------------------------------------------------
 
@@ -407,11 +180,40 @@ INSERT INTO `sanpham` (`id`, `category_id`, `tittle`, `price`, `thumbnail`) VALU
 (36, 'BBQ', 'Mì ý sốt bò bằm', 20, 'https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/m/_/m__2.png'),
 (37, 'BBQ', 'Miếng gà sốt cay cơm', 60, 'https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/2/_/2_ga_sot_cay_khoai_nc.png'),
 (38, 'BBQ', 'COMBO 322K ', 322, 'https://jollibee.com.vn/media/catalog/product/cache/9011257231b13517d19d9bae81fd87cc/p/h/phan_an_app_295k.png'),
-(39, 'ĐỒ ĂN NHANH', 'Kem ốc quế', 5, 'https://kenh14cdn.com/2016/img20160407112359366.jpg');
+(40, 'BBQ', 'Sườn nướng', 200, 'https://bazaarvietnam.vn/wp-content/uploads/2022/10/Harpers-Bazaar-nhung-dieu-thu-vi-ve-BBQ_05.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tintuc`
+--
+
+CREATE TABLE `tintuc` (
+  `id` int(11) NOT NULL,
+  `anh` varchar(255) NOT NULL,
+  `tieude` varchar(255) NOT NULL,
+  `noidungchinh` varchar(255) NOT NULL,
+  `noidung` varchar(10000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tintuc`
+--
+
+INSERT INTO `tintuc` (`id`, `anh`, `tieude`, `noidungchinh`, `noidung`) VALUES
+(11, './img/tuyendung.jpg', 'Tuyển dụng', 'Tuyển dụng nhiều vị trí ........', '<p><strong>Giới thiệu:</strong><br />\r\nChillax Coffe Tea l&agrave; c&ocirc;ng ty C&aacute; nh&acirc;n đang hoạt động lĩnh vực Nh&agrave; h&agrave;ng, Kh&aacute;ch sạn tại H&agrave; Nội. Hiện tại ch&uacute;ng t&ocirc;i đang cần tuyển vị trị tr&iacute; &quot;Tuyển nh&acirc;n vi&ecirc;n cho qu&aacute;n cafe&quot; với c&aacute;c kỹ năng như Năng Động, Nhiệt Huyết, Quản L&yacute; Thiết Bị. Bạn sẽ được hưởng c&aacute;c chế độ ph&uacute;c lợi như Du Lịch, Hỗ trợ ph&iacute; đ&agrave;o tạo khi l&agrave;m việc tại Chillax Coffe Tea.<br />\r\nCHILLAX COFFEE TEA 232 Phạm Văng Đồng,Cổ Nhuế tuyển dụng nh&acirc;n vi&ecirc;n<br />\r\nNG&Agrave;Y Đ&Agrave;O TẠO DỰ T&Iacute;NH ( 17/03/2023)<br />\r\n<br />\r\n<strong>1. VỊ TR&Iacute;:</strong>&nbsp;4 BARISTA &ndash; 6 PHỤC VỤ - 2 THU NG&Acirc;N<br />\r\n<br />\r\n<strong>2. Y&Ecirc;U CẦU CHUNG:</strong></p>\r\n\r\n<ul>\r\n	<li>Trung thực, nhanh nhẹn, giao tiếp tốt, th&aacute;i độ tốt</li>\r\n	<li>C&oacute; &yacute; thức vệ sinh sạch sẽ cửa h&agrave;ng</li>\r\n	<li>Cam kết l&agrave;m việc cuối tuần v&agrave; c&aacute;c ng&agrave;y lễ</li>\r\n	<li>Ưu ti&ecirc;n bạn đ&atilde; c&oacute; kinh nghiệm sử dụng được m&aacute;y pha caf&eacute; ( đối với barista)</li>\r\n</ul>\r\n\r\n<p><strong>3. QUYỀN LỢI:</strong></p>\r\n\r\n<ul>\r\n	<li>ĐƯỢC TRAINING MIỄN PH&Iacute; (phải đảm bảo đi đủ để l&agrave;m việc hiệu quả)</li>\r\n	<li>LƯƠNG KHỞI ĐIỂM</li>\r\n	<li>Barista: 20k/1h th&aacute;ng đầu , sau 1 th&aacute;ng thử việc lương 22-25k/1h t&ugrave;y năng lực.</li>\r\n	<li>Thu Ng&acirc;n, Phục vụ : 15k/1h th&aacute;ng đầu, sau thử việc 17k/h.</li>\r\n	<li>Được sắp xếp ca l&agrave;m ph&ugrave; hợp</li>\r\n	<li>L&agrave;m việc m&ocirc;i trường sạch sẽ, năng động</li>\r\n</ul>\r\n\r\n<p><strong>4. THỜI GIAN L&Agrave;M VIỆC :</strong></p>\r\n\r\n<ul>\r\n	<li>Fulltime 7h-15h ; 15h-23h ( đối với barista )</li>\r\n	<li>Part time 7h-12h; 12h-17h ; 17h-23h ( đối với thu ng&acirc;n, phục vụ)</li>\r\n</ul>\r\n\r\n<p>5. ĐỊA ĐIỂM L&Agrave;M VIỆC<br />\r\n<strong>L&agrave;m việc tại:</strong>&nbsp;số 72-TT4, Đường số 10, Khu Đ&ocirc; Thị TP Giao Lưu, 232 Phạm Văn Đồng, Cổ Nhuế 1, HN<br />\r\n(Ưu ti&ecirc;n c&aacute;c bạn ở gần, thuận tiện đi lại)<br />\r\n<strong>Địa điểm l&agrave;m việc:</strong>&nbsp;H&agrave; Nội<br />\r\n<strong>Lương:</strong>&nbsp;5000K VND một th&aacute;ng<br />\r\n<strong>Loại h&igrave;nh c&ocirc;ng việc:</strong>&nbsp;Thỏa thuận thời gian<br />\r\n<strong>Y&ecirc;u cầu:</strong>&nbsp;Chứng Minh Nh&acirc;n D&acirc;n (CMND), Cover Letter<br />\r\n<strong>Quyền lợi:</strong>&nbsp;Du Lịch, Hỗ trợ ph&iacute; đ&agrave;o tạo, M&ocirc;i Trường Chuy&ecirc;n Nghiệp, Thưởng doanh thu, Thưởng Lễ-Tết<br />\r\n<strong>Hạn nộp:</strong>&nbsp;2023-10-06<br />\r\n<strong>Kinh nghiệm:</strong>&nbsp;Kh&ocirc;ng y&ecirc;u cầu kinh nghiệm l&agrave;m việc<br />\r\n<strong>Bằng cấp:</strong>&nbsp;Kh&ocirc;ng y&ecirc;u cầu<br />\r\n<strong>Lĩnh vực:</strong>&nbsp;Dịch vụ -Nh&agrave; h&agrave;ng, Kh&aacute;ch sạn<br />\r\n<strong>Số lượng cần tuyển:</strong>&nbsp;12<br />\r\n<strong>Giới t&iacute;nh:</strong>&nbsp;Kh&ocirc;ng y&ecirc;u cầu</p>\r\n'),
+(12, 'https://tse2.mm.bing.net/th?id=OIP.nh9bePqkbeRCeRr4r7y6QAHaE8&pid=Api&P=0&h=180', 'Món mới', 'MUA 1 TẶNG 1 CÀ PHÊ SÁNG tại …', '<p><em>Nắng l&ecirc;n rồi, đi c&agrave; ph&ecirc; th&ocirc;i!</em></p>\r\n\r\n<p><em>MUA 1 TẶNG 1 C&Agrave; PH&Ecirc; S&Aacute;NG tại &hellip;</em></p>\r\n\r\n<p><em><img alt=\"?\" src=\"https://static.xx.fbcdn.net/images/emoji.php/v9/tf0/2/16/1f449.png\" style=\"height:16px; width:16px\" /></em></p>\r\n\r\n<p><em>&Aacute;p dụng cho TO&Agrave;N BỘ MENU C&Agrave; PH&Ecirc;: Từ c&agrave; ph&ecirc; m&aacute;y Latte, Capu tới Đen, N&acirc;u, Pạc Sỉu truyền thống</em></p>\r\n\r\n<p><em><img alt=\"?\" src=\"https://static.xx.fbcdn.net/images/emoji.php/v9/tf0/2/16/1f449.png\" style=\"height:16px; width:16px\" />Kh&ocirc;ng giới hạn số lượng ly / đơn h&agrave;ng. Ly được tặng c&oacute; gi&aacute; bằng hoặc thấp hơn ly đầu ti&ecirc;n.</em></p>\r\n\r\n<p><em><img alt=\"?\" src=\"https://static.xx.fbcdn.net/images/emoji.php/v9/tf0/2/16/1f449.png\" style=\"height:16px; width:16px\" />&Aacute;p dụng tại &hellip; từ 8g &ndash; 10g s&aacute;ng c&aacute;c ng&agrave;y thứ hai, ba, tư, năm h&agrave;ng tuần!</em></p>\r\n\r\n<p><em><img alt=\"?\" src=\"https://static.xx.fbcdn.net/images/emoji.php/v9/t59/2/16/1f4e3.png\" style=\"height:16px; width:16px\" />Giao h&agrave;ng miễn ph&iacute; 30k cho đơn từ 200k</em></p>\r\n\r\n<p><em>Vượt qua c&aacute;m dỗ của chiếc giường ấm &aacute;p v&agrave; bắt đầu một ng&agrave;y mới thật tỉnh t&aacute;o c&ugrave;ng &hellip; n&agrave;o!</em></p>\r\n\r\n<p><em><img alt=\"?\" src=\"https://static.xx.fbcdn.net/images/emoji.php/v9/t16/2/16/1f3e1.png\" style=\"height:16px; width:16px\" />Địa chỉ qu&aacute;n</em></p>\r\n\r\n<p><em>&ndash; Giờ mở cửa: 8:00 đến 18:00 c&aacute;c ng&agrave;y T2 đến T5 v&agrave; đến 21:00 c&aacute;c ng&agrave;y cuối tuần.</em></p>\r\n'),
+(14, 'https://jamja.vn/blog/wp-content/uploads/2017/09/thit-heo-rung-nuong-anh-15.jpg', 'Món bò rừng mới', 'BÒ RỪNG NƯỚNG ĐÁXÔNG HƠI!!INGONXUẤT SẮC!!!', '<p><br />\r\nB&Ograve; RỪNG NƯỚNG Đ&Aacute;X&Ocirc;NG HƠI!!INGONXUẤT SẮC!!!</p>\r\n\r\n<p>@B&ograve; Nướng X&egrave;o x&egrave;o, hương thơm quyến rũ trong l&agrave;n kh&oacute;i nghi ng&uacute;t...thiệt l&agrave; hấp dẫn hết biết &agrave;!!<br />\r\n&reg;Thịt b&ograve; rừng dai dai, mềm mềm, quyện với c&aacute;c loại rau rừng v&agrave; &iacute;t vị cay của sa tế l&agrave;m thổi bừng<br />\r\nhương vị của m&oacute;n ăn đặc sắc n&agrave;y!!</p>\r\n\r\n<p>&iquest;&ldquo;MUA NGAY ĐỊI! CHỈ C&Oacute; 150K/KG Đ&Aacute; CUỘI NƯỚNG M&Agrave; ĂN Đ&Atilde; ĐỜILU&Ocirc;N!!@@</p>\r\n');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accout_infor`
+--
+ALTER TABLE `accout_infor`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dangnhap`
@@ -446,14 +248,26 @@ ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tintuc`
+--
+ALTER TABLE `tintuc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `accout_infor`
+--
+ALTER TABLE `accout_infor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `dangnhap`
 --
 ALTER TABLE `dangnhap`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `danhmuc`
@@ -465,19 +279,25 @@ ALTER TABLE `danhmuc`
 -- AUTO_INCREMENT for table `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=537;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=722;
 
 --
 -- AUTO_INCREMENT for table `order_admin`
 --
 ALTER TABLE `order_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `tintuc`
+--
+ALTER TABLE `tintuc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
